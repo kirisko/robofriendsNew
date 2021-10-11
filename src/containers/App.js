@@ -4,7 +4,7 @@ import SearchBox from '../components/SearchBox';
 import './App.css';
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
-//import robots from './robots';
+import { robots } from "../robots";
 
 class App extends Component {
     constructor(){
@@ -15,9 +15,10 @@ class App extends Component {
         }
     }
     componentDidMount(){  //another realistic way if there are diff. users. (comment this and uncomment robots to have default files)
-        fetch('https://jsonplaceholder.typicode.com/users')  // link where users registers
-        .then(response=> response.json())
-        .then(users => this.setState({robots:users}));
+       // fetch('https://jsonplaceholder.typicode.com/users')  // link where users registers
+       this.setState({ robots: robots });
+       // .then(response=> response.json())
+       // .then(users => this.setState({robots:users}));
     }
 
     onSearchChange = (event) => {
